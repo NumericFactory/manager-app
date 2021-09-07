@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectModel } from '../models/project.model';
+import { ProjectService } from '../services/project.service';
 
 @Component({
   selector: 'app-board',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardComponent implements OnInit {
 
-  constructor() { }
+  projects;
+  constructor(private projectSvc: ProjectService) { }
 
   ngOnInit(): void {
+    this.projectSvc.projects$.subscribe((projects: Array<ProjectModel>) => {
+      this.projects = projects;
+    })
   }
 
 }
