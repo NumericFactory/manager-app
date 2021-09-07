@@ -4,13 +4,13 @@ interface Project {
    list: Array<List>
 }
 
-interface List {
+export interface List {
    id: number;
    name: string;
    cards: Array<Card>
 }
 
-interface Card {
+export interface Card {
    id: number;
    title: string;
    content: string;
