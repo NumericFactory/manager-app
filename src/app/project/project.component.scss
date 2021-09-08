@@ -3,5 +3,12 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
 }
 
 .list-project mat-list-item {
-   color: #fff
+   color: #fff;
+   background: #474646;
+   transition-duration: .2s;
+}
+
+.list-project mat-list-item:hover {
+   cursor: pointer;
+   background: #2c2c2c;
 }

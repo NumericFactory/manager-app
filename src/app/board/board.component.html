@@ -1,1 +1,24 @@
-<p>board works!</p>
+<div *ngIf="project" class="list-container">
+
+   <!-- Listes du projet -->
+   <div *ngFor="let list of project.lists" class="list-item">
+      <button mat-flat-button color="primary">{{list.name}}</button>
+      <!-- Cards -->
+      <mat-card style="position:relative" *ngFor="let card of list.cards" class="example-card">
+         <mat-card-title>{{card.title}}</mat-card-title>
+         <mat-card-subtitle>{{card.duedate | date:'dd-MM-yyyy'}}</mat-card-subtitle>
+         <button mat-icon-button class="delete-card-btn">
+            <mat-icon>close</mat-icon>
+         </button>
+      </mat-card>
+
+      <button mat-flat-button>+ Ajouter une carte</button>
+
+   </div>
+
+   <!-- Ajouter une liste-->
+   <div class="list-item list-item-add">
+      <button mat-flat-button>Ajouter une liste</button>
+   </div>
+
+</div>

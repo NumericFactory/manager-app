@@ -1,0 +1,38 @@
+.list-container {
+   display: flex;
+   height: calc(100vh - 100px);
+}
+.list-item {
+   min-width: 245px;
+   width: 250px;
+   height: 85%;
+   background: #fafafa;
+   margin: 0 10px;
+   padding: 10px;
+   text-align: center;
+}
+.list-item.list-item-add {
+   background: rgb(0 0 0 / 25%);
+}
+.list-item button {
+   width: 100%;
+   margin-bottom: 20px;
+}
+mat-card {
+   border-left: 3px solid rgb(54, 218, 54);
+   position: relative;
+   margin-bottom: 20px;
+}
+mat-card-title {
+   font-size: 17px;
+   color: rgb(51, 51, 51);
+}
+mat-card .delete-card-btn {
+   position: absolute;
+   top: 0;
+   right: 0;
+   width: auto;
+   line-height: 20px;
+   height: 20px;
+   color: rgb(172, 188, 219);
+}

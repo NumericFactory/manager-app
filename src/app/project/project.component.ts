@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProjectModel } from '../models/project.model';
 import { ProjectService } from '../services/project.service';
 
@@ -9,8 +10,11 @@ import { ProjectService } from '../services/project.service';
 })
 export class ProjectComponent implements OnInit {
   projects: Array<ProjectModel>
-  // Injecter le service
-  constructor(private projectSvc: ProjectService) { }
+  // Injecter le service et le router
+  constructor(
+    private projectSvc: ProjectService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     // faire la request AJAX getProjectsFromApi() 
@@ -20,7 +24,11 @@ export class ProjectComponent implements OnInit {
       this.projects = data;
     }
     );
+  }
 
+  getProjectData(projectId: number) {
+    this.projectSvc.getProjectFromApi(projectId);
+    this.router.navigate(['/project', projectId])
   }
 
 }
