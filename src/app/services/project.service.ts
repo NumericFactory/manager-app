@@ -43,7 +43,11 @@ export class ProjectService {
    * doc STRAPI : https://strapi.io/documentation/developer-docs/latest/developer-resources/content-api/content-api.html#endpoints
    */
   getProjectsFromApi() {
-    this.http.get(this.API_URL + '/projects')
+    this.http.get(this.API_URL + '/projects',
+      // {
+      //   headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
+      // }
+    )
       .pipe(
         map((response: any) =>
           response.map((project: any) => new ProjectModel(project))

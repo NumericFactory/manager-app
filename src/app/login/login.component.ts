@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { LoginService } from '../services/login.service';
 
@@ -11,7 +13,11 @@ import { LoginService } from '../services/login.service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  constructor(private loginSvc: LoginService) { }
+  constructor(
+    private loginSvc: LoginService,
+    private router: Router,
+    private notif: MatSnackBar
+  ) { }
 
   ngOnInit(): void {
     /*
@@ -38,8 +44,11 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       // poster les donnee au back-end
       this.loginSvc.login(this.loginForm.value.email, this.loginForm.value.password)
-        .subscribe((reponse: any) =>
-          localStorage.setItem('token', reponse.jwt)
+        .subscribe((reponse: any) => {
+          localStorage.setItem('token', reponse.jwt);
+          this.notif.open('Vous êtes connecté(e)', 'Fermer', { duration: 5000 });
+          this.router.navigate(['/']);
+        }
         );
     }
   }
