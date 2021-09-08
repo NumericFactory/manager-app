@@ -16,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     MatListModule, MatButtonModule, MatCardModule, MatIconModule, MatFormFieldModule
 
   ],

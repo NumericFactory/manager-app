@@ -1,6 +1,10 @@
 h1 {
    color: #fff;
 }
-mat-card {
-   width: 50%;
+input, label {
+   display: block;
+}
+p.error {
+   color: red;
+   font-size:85%
 }

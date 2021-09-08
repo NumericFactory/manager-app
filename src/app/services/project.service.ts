@@ -72,7 +72,7 @@ export class ProjectService {
     // Si le projet contient des listes on fait la requête au back-end
     if (project.lists.length > 0) {
       // on forme la querystring
-      let queryString: string = ''; // exemple: id_in=1&id_in=3
+      let queryString: string = ''; // exemple: "/lists?id_in=1&id_in=3"
       project.lists.map(list =>
         queryString += 'id_in=' + list.id + '&'
       );

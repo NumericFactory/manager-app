@@ -2,5 +2,24 @@
 <mat-card>
    <mat-card-content>
       <!-- Formulaire email/MDP-->
+      <form (submit)="onSubmit()" [formGroup]="loginForm">
+
+         <label>Email</label>
+         <input formControlName="email" type="text">
+         <p *ngIf="loginForm.controls.email.invalid" class="error">
+            Renseigner un email valide
+         </p>
+
+         <label>Mot de pass</label>
+         <input formControlName="password" type="password">
+         <p *ngIf="loginForm.controls.password.hasError('minlength') || loginForm.controls.password.hasError('maxlength')"
+            class="error">
+            Le mot de passe doit être compris entre 5 et 7 car.
+         </p>
+
+         <button type="submit">Envoyer</button>
+
+      </form>
+
    </mat-card-content>
 </mat-card>
