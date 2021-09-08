@@ -27,4 +27,15 @@ export class LoginService {
     this.notif.open('Vous êtes déconnecté(e)', 'Fermer', { duration: 5000 });
     this.router.navigate(['/login']);
   }
+
+  isLog(): boolean {
+    if (localStorage.getItem('token') != null) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+
 }
